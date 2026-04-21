@@ -1,36 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_flag_width.c                                    :+:      :+:    :+:   */
+/*   ft_printf_c.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aielo <aielo@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/23 17:42:28 by aielo             #+#    #+#             */
-/*   Updated: 2025/06/25 19:23:17 by aielo            ###   ########.fr       */
+/*   Created: 2025/06/18 16:21:22 by aielo             #+#    #+#             */
+/*   Updated: 2026/04/21 16:52:42 by aielo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_flag_width(t_flags *flag, int length)
+int	ft_format_identifier_c(va_list *arg_list, t_flags *flag)
 {
-	int		width;
-	int		fill;
-	char	fill_chr;
+	int		printed;
+	char	c;
 
-	width = flag->width;
-	fill_chr = ' ';
-	if (flag->zero && !flag->left && flag->prec < 0)
-		fill_chr = '0';
-	if (width > length)
+	printed = 0;
+	c = (char)(va_arg(*arg_list, int));
+	if (!flag->left)
 	{
-		fill = width - length;
-		while (fill > 0)
-		{
-			write(1, &fill_chr, 1);
-			fill--;
-		}
-		return (width - length);
+		printed += ft_flag_width(flag, 1);
+		ft_putchar_fd(c, 1);
+		printed += 1;
 	}
-	return (0);
+	else
+	{
+		ft_putchar_fd(c, 1);
+		printed += 1;
+		printed += ft_flag_width(flag, 1);
+	}
+	return (printed);
 }

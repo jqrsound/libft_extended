@@ -6,130 +6,84 @@
 #    By: aielo <aielo@student.42berlin.de>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/09 13:19:32 by aielo             #+#    #+#              #
-#    Updated: 2026/04/21 14:43:17 by aielo            ###   ########.fr        #
+#    Updated: 2026/04/21 18:33:32 by aielo            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME 		= libft_extended.a
+NAME 		= libft.a
+
+# Colors
+GREEN		= \033[0;32m
+RESET		= \033[0m
 
 # Directories
-LIBFT_DIR 		= libft
-PRINTF_DIR		= ft_printf
-PRINTF_SRCS 	= $(PRINTF_DIR)/srcs
-PRINTF_UTILS 	= $(PRINTF_DIR)/utils
-INCLUDES_DIR	= includes
-OBJ_DIR 		= obj
+INC_DIR		= includes
+SRC_DIR		= srcs
+OBJ_DIR 	= obj
+
+# Libft
+LIBFT_DIR 	= $(SRC_DIR)/libft
+LIBFT_SRCS	= ft_atoi.c ft_atoi_long.c ft_bzero.c ft_calloc.c \
+				ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c \
+				ft_isprint.c ft_itoa.c ft_lstadd_back.c ft_lstadd_front.c \
+				ft_lstclear.c ft_lstdelone.c ft_lstiter.c ft_lstlast.c \
+				ft_lstmap.c ft_lstnew.c ft_lstsize.c ft_memchr.c \
+				ft_memcmp.c ft_memcpy.c ft_memmove.c ft_memset.c \
+				ft_putchar_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_putstr_fd.c \
+				ft_split.c ft_strchr.c ft_strcmp.c ft_strdup.c \
+				ft_striteri.c ft_strjoin.c ft_strlcat.c ft_strlcpy.c \
+				ft_strlen.c ft_strmapi.c ft_strncmp.c ft_strnstr.c \
+				ft_strrchr.c ft_strtrim.c ft_substr.c ft_tolower.c \
+				ft_toupper.c
+
+# Ft_Printf
+PRINTF_DIR	= $(SRC_DIR)/ft_printf
+PRINTF_SRCS	=  ft_printf.c \
+				srcs/ft_flag_precision.c srcs/ft_flag_width.c srcs/ft_flags.c \
+				srcs/ft_printf_c.c srcs/ft_printf_di.c fsrcs/t_printf_p.c \
+				srcs/ft_printf_per.c srcs/ft_printf_s.c srcs/ft_printf_u.c \
+				srcs/ft_printf_x.c
+
+# Get Next Line
+GNL_DIR 	= $(SRC_DIR)/gnl
+GNL_SRCS	= get_next_line.c get_next_line_delimiter.c
 
 # Sources
-LIBFT 		= $(LIBFT_DIR)/ft_atoi_long.c \
-				$(LIBFT_DIR)/ft_atoi.c \
-				$(LIBFT_DIR)/ft_bzero.c \
-				$(LIBFT_DIR)/ft_calloc.c \
-				$(LIBFT_DIR)/ft_isalnum.c \
-				$(LIBFT_DIR)/ft_isalpha.c \
-				$(LIBFT_DIR)/ft_isascii.c \
-				$(LIBFT_DIR)/ft_isdigit.c \
-				$(LIBFT_DIR)/ft_isprint.c \
-				$(LIBFT_DIR)/ft_itoa.c \
-				$(LIBFT_DIR)/ft_lstadd_back.c \
-				$(LIBFT_DIR)/ft_lstadd_front.c \
-				$(LIBFT_DIR)/ft_lstclear.c \
-				$(LIBFT_DIR)/ft_lstdelone.c \
-				$(LIBFT_DIR)/ft_lstiter.c \
-				$(LIBFT_DIR)/ft_lstlast.c \
-				$(LIBFT_DIR)/ft_lstmap.c \
-				$(LIBFT_DIR)/ft_lstnew.c \
-				$(LIBFT_DIR)/ft_lstsize.c \
-				$(LIBFT_DIR)/ft_memchr.c \
-				$(LIBFT_DIR)/ft_memcmp.c \
-				$(LIBFT_DIR)/ft_memcpy.c \
-				$(LIBFT_DIR)/ft_memmove.c \
-				$(LIBFT_DIR)/ft_memset.c \
-				$(LIBFT_DIR)/ft_putchar_fd.c \
-				$(LIBFT_DIR)/ft_putendl_fd.c \
-				$(LIBFT_DIR)/ft_putnbr_fd.c \
-				$(LIBFT_DIR)/ft_putstr_fd.c \
-				$(LIBFT_DIR)/ft_split.c \
-				$(LIBFT_DIR)/ft_strchr.c \
-				$(LIBFT_DIR)/ft_strcmp.c \
-				$(LIBFT_DIR)/ft_strdup.c \
-				$(LIBFT_DIR)/ft_striteri.c \
-				$(LIBFT_DIR)/ft_strjoin.c \
-				$(LIBFT_DIR)/ft_strlcat.c \
-				$(LIBFT_DIR)/ft_strlcpy.c \
-				$(LIBFT_DIR)/ft_strlen.c \
-				$(LIBFT_DIR)/ft_strmapi.c \
-				$(LIBFT_DIR)/ft_strncmp.c \
-				$(LIBFT_DIR)/ft_strnstr.c \
-				$(LIBFT_DIR)/ft_strrchr.c \
-				$(LIBFT_DIR)/ft_strtrim.c \
-				$(LIBFT_DIR)/ft_substr.c \
-				$(LIBFT_DIR)/ft_tolower.c \
-				$(LIBFT_DIR)/ft_toupper.c \
-				$(LIBFT_DIR)/get_next_line_delimiter.c \
-				$(LIBFT_DIR)/get_next_line.c 
+SOURCES		= $(addprefix $(LIBFT_DIR)/, $(LIBFT_SRCS)) \
+				$(addprefix $(PRINTF_DIR)/, $(PRINTF_SRCS)) \
+				$(addprefix $(GNL_DIR)/, $(GNL_SRCS))
 
-PRINTF		= $(PRINTF_DIR)/ft_printf.c \
-				$(PRINTF_SRCS)/ft_printf_c.c \
-				$(PRINTF_SRCS)/ft_printf_di.c \
-				$(PRINTF_SRCS)/ft_printf_s.c \
-				$(PRINTF_SRCS)/ft_printf_u.c \
-				$(PRINTF_SRCS)/ft_printf_x.c \
-				$(PRINTF_SRCS)/ft_printf_p.c \
-				$(PRINTF_SRCS)/ft_printf_per.c \
-				$(PRINTF_SRCS)/ft_flags.c \
-				$(PRINTF_SRCS)/ft_flag_width.c \
-				$(PRINTF_SRCS)/ft_flag_precision.c \
-				$(PRINTF_UTILS)/ft_itoa_unsign.c \
-				$(PRINTF_UTILS)/ft_itoa_u.c \
-				$(PRINTF_UTILS)/ft_itoa_x.c \
-				$(PRINTF_UTILS)/ft_itoa_p.c \
-				$(PRINTF_UTILS)/ft_putchar_fd.c \
-				$(PRINTF_UTILS)/ft_putstr_fd.c \
-				$(PRINTF_UTILS)/ft_strlen.c \
-				$(PRINTF_UTILS)/ft_substr.c \
-				$(PRINTF_UTILS)/ft_isdigit.c \
-				$(PRINTF_UTILS)/ft_atoi.c
-
-SOURCES 	= $(LIBFT) \
-				$(PRINTF)
-
-# Objects
-OBJECTS 	= $(SOURCES:%.c=$(OBJ_DIR)/%.o)
+# Objects & Dependency
+OBJECTS 	= $(SOURCES:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
+DEPENDS 	= $(OBJECTS:.o=.d)
 
 # Compiler
 CC 			= cc
-CFLAGS 		= -Wall -Wextra -Werror
-CEXTRA_INC 	= -I$(INCLUDES_DIR)
-
-# Dependency
-DEPENDS 	= $(OBJECTS:.o=.d)
+CFLAGS		= -Wall -Wextra -Werror -MMD -MP -I$(INC_DIR)
+AR			= ar rcs
+RM			= rm -rf
 
 # Rules
-all: $(OBJ_DIR) $(NAME)
-
-$(OBJ_DIR):
-	mkdir -p $(OBJ_DIR)
+all: $(NAME)
 
 $(NAME): $(OBJECTS)
-	ar rcs $@ $^
+	@$(AR) $(NAME) $(OBJECTS)
+	@echo "$(GREEN) $(NAME) compiled!$(RESET)"
 
-$(OBJ_DIR)/%.o: %.c
-	mkdir -p $(dir $@)
-	$(CC) $(CFLAGS) $(CEXTRA_INC) -MMD -MP -c $< -o $@
-
--include $(DEPENDS)
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+	@mkdir -p $(dir $@)
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -rf $(OBJ_DIR)
+	@$(RM) $(OBJ_DIR)
+	@echo "$(GREEN) Objects and dependencies removed.$(RESET)"
 
 fclean: clean
-	rm -f $(NAME)
+	@$(RM) $(NAME)
+	@echo "$(GREEN) $(NAME) removed.$(RESET)"
 
 re: fclean all
 
-# Validate the library
-validate: re
-	./check_libft.sh
+-include $(DEPENDS)
 
-.PHONY: all clean fclean re validate
+.PHONY: all clean fclean re

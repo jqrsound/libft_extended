@@ -6,11 +6,11 @@
 /*   By: aielo <aielo@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 12:09:10 by aielo             #+#    #+#             */
-/*   Updated: 2025/06/25 19:12:35 by aielo            ###   ########.fr       */
+/*   Updated: 2026/04/21 16:52:37 by aielo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 void	ft_set_flags(t_flags *flag)
 {
@@ -51,7 +51,7 @@ int	ft_check_flags_a(const char *format, t_flags *flag, int i)
 		i++;
 		i = ft_find_size(format, i, &(flag->width));
 	}
-	else if (ft_isdigit(format[i]))
+	else if (ft_isnumber(format[i]))
 		i = ft_find_size(format, i, &(flag->width));
 	return (i);
 }
@@ -87,7 +87,7 @@ int	ft_find_size(const char *format, int i, int *size)
 	char	str[200];
 
 	k = 0;
-	while (ft_isdigit(format[i]) && k < 199)
+	while (ft_isnumber(format[i]) && k < 199)
 	{
 		str[k] = format[i];
 		k++;

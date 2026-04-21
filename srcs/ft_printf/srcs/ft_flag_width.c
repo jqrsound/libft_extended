@@ -1,36 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_flag_width.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aielo <aielo@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/15 17:13:15 by aielo             #+#    #+#             */
-/*   Updated: 2025/06/27 23:43:36 by aielo            ###   ########.fr       */
+/*   Created: 2025/06/23 17:42:28 by aielo             #+#    #+#             */
+/*   Updated: 2026/04/21 16:52:21 by aielo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(const char *nptr)
-{
-	int	result;
-	int	sign;
-	int	i;
+#include "libft.h"
 
-	result = 0;
-	sign = 1;
-	i = 0;
-	while (nptr[i] == ' ' || (nptr[i] >= 9 && nptr[i] <= 13))
-		i++;
-	if (nptr[i] == '-' || nptr[i] == '+')
+int	ft_flag_width(t_flags *flag, int length)
+{
+	int		width;
+	int		fill;
+	char	fill_chr;
+
+	width = flag->width;
+	fill_chr = ' ';
+	if (flag->zero && !flag->left && flag->prec < 0)
+		fill_chr = '0';
+	if (width > length)
 	{
-		if (nptr[i] == '-')
-			sign = -1;
-		i++;
+		fill = width - length;
+		while (fill > 0)
+		{
+			write(1, &fill_chr, 1);
+			fill--;
+		}
+		return (width - length);
 	}
-	while (nptr[i] >= '0' && nptr[i] <= '9')
-	{
-		result = result * 10 + (nptr[i] - '0');
-		i++;
-	}
-	return (result * sign);
+	return (0);
 }

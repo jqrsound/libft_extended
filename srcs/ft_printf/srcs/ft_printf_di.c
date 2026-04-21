@@ -6,11 +6,11 @@
 /*   By: aielo <aielo@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 18:05:18 by aielo             #+#    #+#             */
-/*   Updated: 2026/04/20 18:11:55 by aielo            ###   ########.fr       */
+/*   Updated: 2026/04/21 16:52:47 by aielo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 static int			ft_sign(int sign, int lenght, t_flags *flag);
 static int			print_number(int number);

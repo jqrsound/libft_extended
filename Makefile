@@ -6,7 +6,7 @@
 #    By: aielo <aielo@student.42berlin.de>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/09 13:19:32 by aielo             #+#    #+#              #
-#    Updated: 2026/04/21 18:33:32 by aielo            ###   ########.fr        #
+#    Updated: 2026/04/22 17:54:47 by aielo            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,8 +24,9 @@ OBJ_DIR 	= obj
 # Libft
 LIBFT_DIR 	= $(SRC_DIR)/libft
 LIBFT_SRCS	= ft_atoi.c ft_atoi_long.c ft_bzero.c ft_calloc.c \
-				ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c \
-				ft_isprint.c ft_itoa.c ft_lstadd_back.c ft_lstadd_front.c \
+				ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isnumber.c \
+				ft_isprint.c ft_itoa_p.c ft_itoa_u.c ft_itoa_unsign.c \
+				ft_itoa_x.c ft_itoa.c ft_lstadd_back.c ft_lstadd_front.c \
 				ft_lstclear.c ft_lstdelone.c ft_lstiter.c ft_lstlast.c \
 				ft_lstmap.c ft_lstnew.c ft_lstsize.c ft_memchr.c \
 				ft_memcmp.c ft_memcpy.c ft_memmove.c ft_memset.c \
@@ -40,7 +41,7 @@ LIBFT_SRCS	= ft_atoi.c ft_atoi_long.c ft_bzero.c ft_calloc.c \
 PRINTF_DIR	= $(SRC_DIR)/ft_printf
 PRINTF_SRCS	=  ft_printf.c \
 				srcs/ft_flag_precision.c srcs/ft_flag_width.c srcs/ft_flags.c \
-				srcs/ft_printf_c.c srcs/ft_printf_di.c fsrcs/t_printf_p.c \
+				srcs/ft_printf_c.c srcs/ft_printf_di.c srcs/ft_printf_p.c \
 				srcs/ft_printf_per.c srcs/ft_printf_s.c srcs/ft_printf_u.c \
 				srcs/ft_printf_x.c
 

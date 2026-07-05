@@ -1,11 +1,47 @@
-
 # Libft_Extended
-  
-As the first exercise for the Common Core at 42 Berlin, we have programmed a C library containing numerous general-purpose functions to be used in our future programmes.
 
-In the following exercises, we programmed other, more complex functions such as get_next_line and ft_printf.
+<p align="center">
+  <img src="https://img.shields.io/badge/Language-00599C?logo=c&logoColor=white" alt="C Badge" />
+  <img src="https://img.shields.io/badge/42%20Berlin-Common%20Core-000000" alt="42 Badge" />
+  <img src="https://img.shields.io/badge/Library-Extended-8B5CF6" alt="Library Badge" />
+</p>
 
-This libft_extended library contains the Libft, Get Next Line and ft_printf exercises, all three of which include bonuses, as well as other extra functions that I programmed later for other projects.
+<p align="center">
+  <strong>Libft_Extended</strong> is my extended C library collection, containing Libft, get_next_line, ft_printf, and additional utility functions used across future projects.
+</p>
+
+## Overview
+
+As the first exercise in the **Common Core at 42 Berlin**, I programmed a C library with many general-purpose functions to support future projects.
+
+Later exercises introduced more advanced functions such as:
+
+- `get_next_line`
+- `ft_printf`
+
+This repository brings together:
+
+- **Libft**
+- **Get Next Line**
+- **ft_printf**
+- Their bonus parts
+- Extra utility functions added later for other projects
+
+## Contents
+
+- Reusable C utility functions.
+- File reading helpers.
+- Formatted output functions.
+- Bonus implementations.
+- Extra functions created for later projects.
+
+## Goals
+
+- Build a strong base in C.
+- Reimplement standard-library-style functions.
+- Learn memory management and pointer manipulation.
+- Practice modular and reusable code design.
+- Reuse the same code across multiple 42 projects.
 
 ## List of functions
 
@@ -69,3 +105,8 @@ ft_printf
 ft_strcmp  
 get_next_line  
 get_next_line_delimiter  
+
+  
+<p align="center">
+  Made with ❤️ in C at 42 Berlin
+</p>
